@@ -1,14 +1,17 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pprint
+import os
 import re
 from time import sleep
+import csv
+
+x = 0
 
 
 def dnd_spell_parser():
     start = 0
     spell_id = {}
-    total = {}
     mysityurl = 'https://dnd.su/spells/'
     html = urlopen(mysityurl)
     bs0 = BeautifulSoup(html, 'html.parser', )
@@ -19,10 +22,9 @@ def dnd_spell_parser():
         l = name_and_link.get('href')
         spell_id.update({'name': name_and_link.get('title')})
         next_link(l, spell_id)
-        total.update({start: spell_id})
-        spell_id = {}
+        db_writter(spell_id)
+        spell_id.clear()
         start += 1
-        print(total)
         sleep(1)
     return
 
@@ -33,21 +35,36 @@ def next_link(link, spell_id):
     bs0 = BeautifulSoup(html, 'html.parser')
     info = bs0.find('ul', attrs={'class': "params"})
     all_li = info.find_all("li", recursive=False)
-    # print(all_li)
+    if len(all_li) < 7 or len(all_li) > 9:
+        print(link)
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        return
     step_one = all_li[0].getText().split(',')
+
     spell_id.update({'lvl': step_one[0].strip()})
     spell_id.update({'school': step_one[1].strip()})
     step_two = all_li[1].getText().split(':')
+    # Время накладывания 2
     spell_id.update({step_two[0]: step_two[1].strip()})
     step_three = all_li[2].getText().split(':')
     spell_id.update({step_three[0]: step_three[1].strip()})
     step_four = all_li[3].getText().split(':')
     spell_id.update({step_four[0]: step_four[1].strip()})
     step_five = all_li[4].getText().split(':')
+    # time
     spell_id.update({step_five[0]: step_five[1].strip()})
+
+    if len(all_li) == 7:
+        step_seven = all_li[5].getText().split(':')
+        spell_id.update({step_seven[0]: step_seven[1].strip()})
+        step_eight = all_li[6].getText()
+        spell_id.update({'Описание': re.sub('[\t\r\n\xa0]', '', str(step_eight))})
+        return
     step_six = all_li[5].getText().split(':')
+    # 6 класс
     spell_id.update({step_six[0]: step_six[1].strip()})
     step_seven = all_li[6].getText().split(':')
+    # 7 источник
     spell_id.update({step_seven[0]: step_seven[1].strip()})
     if len(all_li) == 8:
         step_eight = all_li[7].getText()
@@ -55,7 +72,7 @@ def next_link(link, spell_id):
     elif len(all_li) == 9:
         step_eight = all_li[7].getText().split(':')
         spell_id.update({step_eight[0]: step_eight[1].strip()})
-        step_eight = all_li[7].getText()
+        step_eight = all_li[8].getText()
         spell_id.update({'Описание': re.sub('[\t\r\n\xa0]', '', str(step_eight))})
     else:
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
@@ -63,6 +80,31 @@ def next_link(link, spell_id):
         print(all_li)
         return
 
-x = {}
-next_link('/spells/3052-tasha_s_otherworldly_guise/', x)
-print(x)
+
+def db_writter(spell: dict):
+    global x
+
+    # Получаем набор заголовков
+    columns = ['link', 'name', 'lvl', 'school', 'Время накладывания', 'Дистанция', 'Компоненты', 'Длительность',
+               'Классы', 'Архетипы', 'Источник', 'Описание']
+    set_spell = {}
+    for i in columns:
+        set_spell.setdefault(i, spell.get(i))
+    print(spell['name'] + '---' + str(len(spell)) + '---' + str(len(set_spell)))
+
+    if x == 0:
+        os.remove('spells.csv')
+    with open('spells.csv', 'a', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=columns)
+        if x == 0:
+            writer.writeheader()  # Пишем заголовок
+            x += 1
+
+        writer.writerow(set_spell)
+        print('done')
+
+
+dnd_spell_parser()
+# x = {}
+# next_link('/spells/741-encode_thoughts/', x)
+# print(x)
