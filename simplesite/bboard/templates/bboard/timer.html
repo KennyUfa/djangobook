@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> START </title>
+</head>
+<header>
+    <h1>Время</h1>
+</header>
+<body>
+
+<div id='timer'>
+    <h1>{{ text }}</h1>
+</div>
+<script>
+    var socket = new WebSocket('ws://localhost:8000/ws/some_url/');
+
+    socket.onmessage = function (event) {
+        var data = JSON.parse(event.data);
+        console.log(data);
+        document.querySelector('#timer').innerText = data.message;
+    }
+</script>
+</body>
+</html>

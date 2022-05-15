@@ -24,3 +24,28 @@ class Rubric(models.Model):
         verbose_name_plural = 'Рубрики'
         verbose_name = 'Рубрика'
         ordering = ['name']
+
+
+class DndSpell(models.Model):
+    # ['link', 'name', 'lvl', 'school', 'Время накладывания', 'Дистанция', 'Компоненты', 'Длительность',
+    # 'Классы', 'Архетипы', 'Источник', 'Описание']
+    link = models.CharField(max_length=50, verbose_name='ссылка')
+    name = models.CharField(max_length=50, verbose_name='название')
+    lvl = models.IntegerField(verbose_name='уровень')
+    school = models.CharField(max_length=50, verbose_name='школа')
+    time_cast = models.CharField(max_length=100, verbose_name='время накладывания')
+    distance = models.CharField(max_length=50, verbose_name='дистанция')
+    components = models.CharField(max_length=100, verbose_name='компоненты')
+    timing = models.CharField(max_length=100, verbose_name='Длительность')
+    class_actor = models.CharField(max_length=100, verbose_name='Классы')
+    arhitype = models.CharField(max_length=100, verbose_name='Архетипы')
+    origin = models.CharField(max_length=100, verbose_name='источник')
+    instruction = models.CharField(max_length=100, verbose_name='описание')
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Заклинания'
+        verbose_name = 'Заклинание'

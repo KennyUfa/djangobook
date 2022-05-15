@@ -34,3 +34,6 @@ class BbCreateView(CreateView):
 
 def home(request):
     return render(request, 'bboard/home.html')
+
+def time(request):
+    return render(request,'bboard/timer.html')
