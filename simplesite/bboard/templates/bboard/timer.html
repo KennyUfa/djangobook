@@ -9,7 +9,11 @@
 </header>
 <body>
 
-<div id='timer'>
+<div id='time'>
+    <h1>{{ text }}</h1>
+</div>
+
+<div id='usd'>
     <h1>{{ text }}</h1>
 </div>
 <script>
@@ -18,7 +22,16 @@
     socket.onmessage = function (event) {
         var data = JSON.parse(event.data);
         console.log(data);
-        document.querySelector('#timer').innerText = data.message;
+        document.querySelector('#time').innerText = data.message;
+    }
+
+
+    var socket = new WebSocket('ws://localhost:8000/ws/some_urlUSD/');
+
+    socket.onmessage = function (event) {
+        var data = JSON.parse(event.data);
+        console.log(data);
+        document.querySelector('#usd').innerText = data.message;
     }
 </script>
 </body>

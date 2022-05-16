@@ -22,5 +22,6 @@ urlpatterns = [
     path('', bboard.views.home, name = 'Home'),
     path('admin/', admin.site.urls),
     path('bboard/', include("bboard.urls")),
-    path('time/', bboard.views.time)
+    path('time/', bboard.views.time, name = 'widgets')
+
 ]
