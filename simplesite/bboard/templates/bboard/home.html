@@ -1,16 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title> START </title>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'bboard/my_style.css' %}">
 </head>
 <body>
 <header>
     <h1>Начальная страница</h1>
 </header>
 <nav>
-    <a href="{% url 'index' %}">Start</a>
-    <a href="{% url 'widgets' %}">Widgets</a>
+    <div class="nav-bg">
+        <div class="wrapper">
+            <ul>
+                <li class="main">
+                    <a href="{% url 'index' %}">
+                        <p>Объявления</p>
+                    </a>
+                </li>
+                <li class="line"></li>
+                <li class="main">
+                    <a href="{% url 'widgets' %}">
+                        <p>Веб-сокет виджеты</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
 </nav>
 </body>
 </html>
