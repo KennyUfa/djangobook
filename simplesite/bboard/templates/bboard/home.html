@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css"
+          href="{% static 'bboard/normalize.css' %}">
+    <link rel="stylesheet" type="text/css"
           href="{% static 'bboard/my_style.css' %}">
 </head>
 <body>
@@ -19,7 +21,11 @@
                         <p>Объявления</p>
                     </a>
                 </li>
-                <li class="line"></li>
+                <li class="line">
+                    <a href="{% url 'rolls' %}">
+                        <p>Днд ролл</p>
+                    </a>
+                </li>
                 <li class="main">
                     <a href="{% url 'widgets' %}">
                         <p>Веб-сокет виджеты</p>

@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from bboard.views import attack_def
 
 import bboard.views
 
 urlpatterns = [
-    path('', bboard.views.home, name = 'Home'),
+    path('', bboard.views.home, name='Home'),
     path('admin/', admin.site.urls),
     path('bboard/', include("bboard.urls")),
-    path('time/', bboard.views.time, name = 'widgets')
+    path('time/', bboard.views.time, name='widgets'),
+    path('attack/', attack_def, name='rolls'),
 
 ]

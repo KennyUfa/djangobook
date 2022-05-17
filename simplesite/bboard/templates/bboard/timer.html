@@ -8,6 +8,9 @@
     <h1>Время</h1>
 </header>
 <body>
+<a href="{% url 'Home' %}">
+    HOME
+</a>
 
 <div id='time'>
     <h1>{{ text }}</h1>
@@ -23,12 +26,12 @@
         var data = JSON.parse(event.data);
         console.log(data);
         document.querySelector('#time').innerText = data.message;
-    }
+    };
 
 
-    var socket = new WebSocket('ws://localhost:8000/ws/some_urlUSD/');
+    var socket2 = new WebSocket('ws://localhost:8000/ws/some_urlUSD/');
 
-    socket.onmessage = function (event) {
+    socket2.onmessage = function (event) {
         var data = JSON.parse(event.data);
         console.log(data);
         document.querySelector('#usd').innerText = data.message;

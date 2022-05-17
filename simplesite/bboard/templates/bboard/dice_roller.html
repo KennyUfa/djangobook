@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<div id="form_dice_roller">
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            Количество кубов
+        </label>
+        <label>
+            <input name="amount" type="text" size=2 value={{ start }}>
+        </label>
+        <br/><br/>
+        <label>
+            Грани:
+        </label>
+        <label>
+            <select name="dice_type">
+                <option selected value="{{ start_dice_type }}">{{ start_dice_type }}</option>
+                <option value="2">k2</option>
+                <option value="3">k3</option>
+                <option value="4">k4</option>
+                <option value="6">k6</option>
+                <option value="8">k8</option>
+                <option value="10">k10</option>
+                <option value="12">k12</option>
+                <option value="20">k20</option>
+                <option value="100">k100</option>
+            </select>
+        </label>
+        <br/><br/>
+        <br/><br/>
+        <input type="submit" >
+    </form>
+</div>
+<div id="result_roller">
+    По кубам: {{ rolls }}, Общий результат: {{ roll }}
+</div>
+</body>
+</html>

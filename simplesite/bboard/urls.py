@@ -1,6 +1,5 @@
-from django.urls import path, include
+from django.urls import path
 
-from bboard import routing
 from .views import index, by_rubric, BbCreateView
 
 urlpatterns = [
