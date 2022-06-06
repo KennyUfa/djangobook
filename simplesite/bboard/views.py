@@ -40,31 +40,3 @@ def home(request):
 
 def time(request):
     return render(request, 'bboard/timer.html')
-
-
-from django.shortcuts import render
-from random import randint
-
-
-# Create your views here.
-
-def attack_def(request):
-    if request.method == "GET":
-        return render(request, 'bboard/dice_roller.html')
-    elif request.method == "POST":
-        rolls, result = hit_dice_roll(request.POST["amount"], request.POST[
-            "dice_type"])
-        start_amount = request.POST["amount"]
-        start_dice_type = request.POST["dice_type"]
-
-        return render(request, 'bboard/dice_roller.html',
-                      {"rolls": rolls, "roll": result, "start": start_amount,
-                       'start_dice_type': start_dice_type})
-
-
-def hit_dice_roll(amount, dice_type):
-    rolls = []
-    for i in range(int(amount)):
-        rolls.append(random.randint(1, int(dice_type)))
-    result = sum(rolls)
-    return rolls, result

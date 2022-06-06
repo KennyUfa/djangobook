@@ -16,13 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-import bboard.views
+from .views import roll_dice
 
 urlpatterns = [
-    path('', bboard.views.home, name='Home'),
-    path('admin/', admin.site.urls),
-    path('bboard/', include("bboard.urls")),
-    path('time/', bboard.views.time, name='widgets'),
-    path('attack/', include("dnd.urls")),
-
+    path('', roll_dice, name='roll'),
 ]

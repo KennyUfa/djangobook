@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
+<a href="{% url 'Home' %}">HOME</a>
 <div id="form_dice_roller">
     <form method="POST">
         {% csrf_token %}
@@ -22,7 +23,8 @@
         </label>
         <label>
             <select name="dice_type">
-                <option selected value="{{ start_dice_type }}">{{ start_dice_type }}</option>
+                <option selected
+                        value="{{ start_dice_type }}">{{ start_dice_type }}</option>
                 <option value="2">k2</option>
                 <option value="3">k3</option>
                 <option value="4">k4</option>
@@ -36,7 +38,7 @@
         </label>
         <br/><br/>
         <br/><br/>
-        <input type="submit" >
+        <input type="submit">
     </form>
 </div>
 <div id="result_roller">

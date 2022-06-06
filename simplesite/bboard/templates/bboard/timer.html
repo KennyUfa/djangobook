@@ -25,17 +25,18 @@
     socket.onmessage = function (event) {
         var data = JSON.parse(event.data);
         console.log(data);
-        document.querySelector('#time').innerText = data.message;
+        document.querySelector('#time').innerText = data.date;
+        document.querySelector('#usd').innerText = data.usd;
     };
 
-
-    var socket2 = new WebSocket('ws://localhost:8000/ws/some_urlUSD/');
-
-    socket2.onmessage = function (event) {
-        var data = JSON.parse(event.data);
-        console.log(data);
-        document.querySelector('#usd').innerText = data.message;
-    }
+    {##}
+    {#var socket2 = new WebSocket('ws://localhost:8000/ws/some_urlUSD/');#}
+    {##}
+    {#socket2.onmessage = function (event) {#}
+    {#    var data = JSON.parse(event.data);#}
+    {#    console.log(data);#}
+    {#    document.querySelector('#usd').innerText = data.message;#}
+    {#}#}
 </script>
 </body>
 </html>

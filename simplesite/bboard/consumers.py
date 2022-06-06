@@ -9,14 +9,17 @@ class WSCons(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
         while True:
-            await self.send(json.dumps({'message': str(datetime.datetime.now().strftime('%H:%M'))}))
+            await self.send(json.dumps({
+                'date': str(datetime.datetime.now().strftime('%H:%M')),
+                'usd': str(usd_parser())
+            }))
             await sleep(60)
 
 
-class WSConsUSD(AsyncWebsocketConsumer):
-    async def connect(self):
-        await self.accept()
-        while True:
-            usd = json.dumps({'message': str(usd_parser())})
-            await self.send(usd)
-            await sleep(60)
+# class WSConsUSD(AsyncWebsocketConsumer):
+#     async def connect(self):
+#         await self.accept()
+#         while True:
+#             usd = json.dumps({'message': str(usd_parser())})
+#             await self.send(usd)
+#             await sleep(60)
