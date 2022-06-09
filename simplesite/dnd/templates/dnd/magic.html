@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "dnd/home.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Список заклинаний{% endblock %}</title>
+
+</head>
+<body>
+{% block content %}
+    <a href="{% url 'Home' %}">HOME</a>
+
+    {% for magic in spells %}
+        <div>
+            <a href="{{ magic.pk }}">{{ magic.name }}</a>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>

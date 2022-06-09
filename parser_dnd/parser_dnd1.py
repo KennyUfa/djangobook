@@ -6,7 +6,7 @@ def combine_names(apps, schema_editor):
     x = 0
     # We can't import the Person model directly as it may be a newer
     # version than this migration expects. We use the historical version.
-    Spell = apps.get_model('dnd', 'DndSpell')
+    Spell = apps.get_model('home', 'DndSpell')
     with open(
             '/Users/kenny/PycharmProjects/djangobook/simplesite/dnd/migrations/spells.csv',
             'r', newline='') as csvfile:
@@ -29,7 +29,7 @@ def combine_names(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('dnd', '0013_alter_dndspell_class_actor'),
+        ('home', '0013_alter_dndspell_class_actor'),
     ]
 
     operations = [

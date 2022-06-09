@@ -1,14 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'bboard/normalize.css' %}">
+          href="{% static 'dnd/normalize.css' %}">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'bboard/my_style.css' %}">
+          href="{% static 'dnd/my_style.css' %}">
+    <title>{% block title %}Главная страница{% endblock %}</title>
+
 </head>
 <body>
+{% block content %}
 <header>
     <h1>Начальная страница</h1>
 </header>
@@ -31,11 +35,17 @@
                         <p>Веб-сокет виджеты</p>
                     </a>
                 </li>
+                <li class="main">
+                    <a href="{% url 'spells' %}">
+                        <p>Заклинания днд</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 
 
 </nav>
+{% endblock %}
 </body>
 </html>

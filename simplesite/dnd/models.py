@@ -3,8 +3,6 @@ from django.db import models
 
 # Create your models here.
 class DndSpell(models.Model):
-    # ['link', 'name', 'lvl', 'school', 'Время накладывания', 'Дистанция', 'Компоненты', 'Длительность',
-    # 'Классы', 'Архетипы', 'Источник', 'Описание']
     link = models.CharField(max_length=100, verbose_name='ссылка')
     name = models.CharField(max_length=100, verbose_name='название')
     lvl = models.CharField(max_length=15, verbose_name='уровень')

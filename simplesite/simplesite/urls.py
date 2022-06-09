@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 import bboard.views
+import dnd.views
 
 urlpatterns = [
-    path('', bboard.views.home, name='Home'),
+    path('', dnd.views.home, name='Home'),
     path('admin/', admin.site.urls),
     path('bboard/', include("bboard.urls")),
     path('time/', bboard.views.time, name='widgets'),
-    path('attack/', include("dnd.urls")),
+    path('dnd/', include("dnd.urls")),
 
 ]
