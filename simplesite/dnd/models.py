@@ -27,8 +27,3 @@ class DndSpell(models.Model):
         verbose_name_plural = 'Заклинания'
         verbose_name = 'Заклинание'
 
-
-class Roll(models.Model):
-    d_amount = models.IntegerField()
-    d_type = models.IntegerField()
-    dmg_result = models.IntegerField()

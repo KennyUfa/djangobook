@@ -10,7 +10,7 @@
 {% block content %}
     <a href="{% url 'Home' %}">HOME</a>
 
-    {% for magic in spells %}
+    {% for magic in object_list %}
         <div>
             <a href="{{ magic.pk }}">{{ magic.name }}</a>
         </div>

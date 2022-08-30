@@ -1,12 +1,29 @@
 html {
   display: block;
-  background-color: #6eacea;
+  background-color: lightcyan;
 }
 
 body {
-  width: 600px;
+  width: 1200px;
   margin: 0 auto;
-  background-color: #FF9500;
-  padding: 0 20px 20px 20px;
+  background-color: white;
   border: 5px solid black;
 }
+
+.head_content{
+  display:flex ;
+  justify-content: space-between;
+}
+
+.main-logo {
+  display: flex;
+  width: auto;
+  height: 100px;
+}
+
+.login {
+  display: flex;
+  border: 3px solid bisque;
+  padding: 10px;
+}
+

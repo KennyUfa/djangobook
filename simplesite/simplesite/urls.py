@@ -25,5 +25,5 @@ urlpatterns = [
     path('bboard/', include("bboard.urls")),
     path('time/', bboard.views.time, name='widgets'),
     path('dnd/', include("dnd.urls")),
-
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
