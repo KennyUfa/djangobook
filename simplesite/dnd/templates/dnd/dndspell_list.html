@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-{% extends "dnd/home.html" %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Список заклинаний{% endblock %}</title>
-
-</head>
-<body>
+{% extends "base_generic.html" %}
+{% block title %}Список заклинаний{% endblock %}
 {% block content %}
     <a href="{% url 'Home' %}">HOME</a>
 
@@ -17,6 +10,3 @@
         <hr>
     {% endfor %}
 {% endblock %}
-
-</body>
-</html>

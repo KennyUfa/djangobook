@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello Django</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-</head>
-<body>
-<a href="{% url 'Home' %}">HOME</a>
+{% extends "base_generic.html" %}
+{% block content %}
 <div id="form_dice_roller">
     <form method="POST">
         {% csrf_token %}
@@ -44,5 +36,4 @@
 <div id="result_roller">
     По кубам: {{ rolls }}, Общий результат: {{ roll }}
 </div>
-</body>
-</html>
+{% endblock %}

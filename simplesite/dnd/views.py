@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.http import HttpResponse
 from random import randint
@@ -44,3 +45,11 @@ class SpellView(ListView):
 def get_spell(request, spell_id):
     spell = DndSpell.objects.get(id=spell_id)
     return render(request, 'dnd/spell.html', {'spell': spell})
+
+
+class LoginDnd(LoginView):
+    next_page = '/'
+
+
+def todolist(request):
+    return render(request, 'todolist.html')

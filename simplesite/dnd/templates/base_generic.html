@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css"
+	      href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css"
+	      href="{% static 'css/styles.css' %}">
+	<title>{% block title %}Главная страница{% endblock %}</title>
+</head>
+<body>
+{% block header %}
+	<header>
+		<div class="container">
+			<div class="date">
+				{% now "Y/m/d" %}
+			</div>
+			<div class="head_content">
+				<a href="{% url 'Home' %}">
+					<div class="main-logo">
+						<img src="{% static 'img/logo/kenny.png' %}"
+						     alt="kenny">
+					</div>
+				</a>
+				{% if user.is_authenticated %}
+					<p>Welcome {{ user.username }} !!!</p>
+					<button type="submit" value="logout">
+						<a href="{% url 'logout' %}">logout</a>
+					</button>
+				{% else %}
+					<p>Welcome {{ user }} !!!</p>
+					<button type="submit" value="login">
+						<a href="{% url 'login' %}">LOGIN</a>
+					</button>
+				{% endif %}
+
+			</div>
+		</div>
+	</header>
+{% endblock header %}
+{% block content %}{% endblock content %}
+{% block footer %}
+	<footer>
+		<div class="div">ФУТЕР</div>
+	</footer>
+{% endblock footer %}
+</body>
+</html>

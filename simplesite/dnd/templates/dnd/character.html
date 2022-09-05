@@ -1,19 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet"
-          href="{% static 'dnd/normalize.css' %}">
-    <link rel="stylesheet"
-          href="{% static 'dnd/character.css' %}">
-    <title>fex</title>
-</head>
-<body>
-<header>
-    <h1>Sample flexbox example</h1>
-</header>
-
+{% extends 'base_generic.html' %}
+{% block content %}
 <section>
     <article>
         <h2>First article</h2>
@@ -54,5 +40,4 @@
             bun cornhole heirloom art party.</p>
     </article>
 </section>
-</body>
-</html>
+{% endblock %}

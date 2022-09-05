@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base_generic.html" %}
+{% block title %}Описание заклинания{% endblock %}
+{% block content %}
+	<body>
 <div>
     <a href="{% url 'spells' %}">SPELLS</a>
 </div>
 <h1>{{ spell.name }}</h1>
+<h2>{{ spell.class_actor }}</h2>
+<h2>{{ spell.components }}</h2>
 <h2>{{ spell.instruction }}</h2>
 
 </body>
-</html>
+{% endblock %}

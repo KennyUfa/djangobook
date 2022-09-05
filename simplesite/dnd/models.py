@@ -26,4 +26,3 @@ class DndSpell(models.Model):
     class Meta:
         verbose_name_plural = 'Заклинания'
         verbose_name = 'Заклинание'
-

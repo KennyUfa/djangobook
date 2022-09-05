@@ -15,6 +15,10 @@ body {
   justify-content: space-between;
 }
 
+.date {
+  text-align: center;
+}
+
 .main-logo {
   display: flex;
   width: auto;

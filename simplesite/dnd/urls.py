@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import roll_dice, SpellView, get_spell, character
+from .views import roll_dice, SpellView, get_spell, character, todolist
 
 urlpatterns = [
     path('roll/', roll_dice, name='roll'),
     path('spells/', SpellView.as_view(), name='spells'),
     path('spells/<int:spell_id>/', get_spell, name='spell'),
-    path('character/', character, name='character')
+    path('character/', character, name='character'),
+    path('todolist/', todolist, name='todo'),
 ]
