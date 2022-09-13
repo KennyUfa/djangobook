@@ -11,8 +11,8 @@
 </head>
 <body>
 {% block header %}
-	<header>
-		<div class="container">
+	<div class="container">
+		<header>
 			<div class="date">
 				{% now "Y/m/d" %}
 			</div>
@@ -25,19 +25,25 @@
 				</a>
 				{% if user.is_authenticated %}
 					<p>Welcome {{ user.username }} !!!</p>
-					<button type="submit" value="logout">
-						<a href="{% url 'logout' %}">logout</a>
-					</button>
+
+					<a href="{% url 'logout' %}">
+						<button type="submit"
+						        value="logout">LOGOUT
+						</button>
+					</a>
 				{% else %}
 					<p>Welcome {{ user }} !!!</p>
-					<button type="submit" value="login">
-						<a href="{% url 'login' %}">LOGIN</a>
-					</button>
+
+					<a href="{% url 'login' %}">
+						<button type="submit"
+						        value="login">LOGIN
+						</button>
+					</a>
 				{% endif %}
 
 			</div>
-		</div>
-	</header>
+		</header>
+	</div>
 {% endblock header %}
 {% block content %}{% endblock content %}
 {% block footer %}

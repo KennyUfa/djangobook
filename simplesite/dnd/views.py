@@ -5,12 +5,13 @@ from random import randint
 from dnd.models import DndSpell
 from django.views.generic import ListView
 
+
 def home(request):
     return render(request, 'dnd/home.html')
 
 
 def character(request):
-    return render(request, 'dnd/character.html')
+    return render(request, 'dnd/charsheet.html')
 
 
 def roll_dice(request):
@@ -34,8 +35,11 @@ def hit_dice_roll(amount, dice_type):
     result = sum(rolls)
     return rolls, result
 
+
 class SpellView(ListView):
     model = DndSpell
+
+
 # def spell_views(request):
 #     spells = DndSpell.objects.all()
 #     return render(request, 'dnd/dndspell_list.html', {'title': 'Список заклинаний',
