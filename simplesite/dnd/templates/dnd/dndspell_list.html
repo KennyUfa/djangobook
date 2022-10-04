@@ -3,6 +3,11 @@
 {% block content %}
     <a href="{% url 'Home' %}">HOME</a>
 
+    <form type="get" action="." style="margin: 0">
+        <input id="search_box" type="text" name="search_box"
+               placeholder="Search...">
+        <button id="search_submit" type="submit">Submit</button>
+    </form>
     {% for magic in object_list %}
         <div>
             <a href="{{ magic.pk }}">{{ magic.name }}</a>
