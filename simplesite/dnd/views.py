@@ -1,8 +1,9 @@
+from django.contrib import auth
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.http import HttpResponse
 from random import randint
-from dnd.models import DndSpell
+from dnd.models import DndSpell, Character
 from django.views.generic import ListView
 
 
@@ -11,8 +12,8 @@ def home(request):
 
 
 def character(request):
-    return render(request, 'dnd/charsheet.html')
-
+    ac_info = Character.objects.get(account=request.user)
+    return render(request, 'dnd/dndlist.html', {'ac_info': ac_info})
 
 def roll_dice(request):
     if request.method == "GET":
@@ -38,12 +39,6 @@ def hit_dice_roll(amount, dice_type):
 
 class SpellView(ListView):
     model = DndSpell
-
-
-# def spell_views(request):
-#     spells = DndSpell.objects.all()
-#     return render(request, 'dnd/dndspell_list.html', {'title': 'Список заклинаний',
-#                                               'spells': spells})
 
 
 def get_spell(request, spell_id):

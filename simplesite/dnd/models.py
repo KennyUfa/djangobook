@@ -1,23 +1,6 @@
 from django.db import models
 
 
-class Character(models.Model):
-    account = models.ForeignKey('auth.User', related_name='account',
-                                on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, blank=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-    is_active = models.BooleanField(default=True)
-    lvl = models.IntegerField(blank=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'персонажи'
-        verbose_name = 'пресонаж'
-
-
 # Create your models here.
 class DndSpell(models.Model):
     link = models.CharField(max_length=100, verbose_name='ссылка')
@@ -43,3 +26,22 @@ class DndSpell(models.Model):
     class Meta:
         verbose_name_plural = 'Заклинания'
         verbose_name = 'Заклинание'
+
+
+class Character(models.Model):
+    account = models.ForeignKey('auth.User', related_name='account',
+                                on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+    is_active = models.BooleanField(default=True)
+    lvl = models.IntegerField(blank=True)
+    spells = models.ManyToManyField(DndSpell,
+                               blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'персонажи'
+        verbose_name = 'пресонаж'
