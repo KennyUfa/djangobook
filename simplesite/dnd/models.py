@@ -28,19 +28,44 @@ class DndSpell(models.Model):
         verbose_name = 'Заклинание'
 
 
+class BaseClassCh(models.Model):
+    class_name = models.CharField(max_length=100, blank=True)
+    meta_class = models.CharField(max_length=100, blank=True)
+
+
+class PreHistory(models.Model):
+    history = models.CharField(max_length=100, blank=True)
+
+
+class Race(models.Model):
+    race = models.CharField(max_length=100, blank=True)
+
+
+class WorldOutlook(models.Model):
+    world_outlook = models.CharField(max_length=100, blank=True)
+
+
 class Character(models.Model):
     account = models.ForeignKey('auth.User', related_name='account',
                                 on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, blank=True)
+    name_champion = models.CharField(max_length=100, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     is_active = models.BooleanField(default=True)
     lvl = models.IntegerField(blank=True)
     spells = models.ManyToManyField(DndSpell,
-                               blank=True)
+                                    blank=True)
+    champion_class = models.ForeignKey(BaseClassCh, on_delete=models.CASCADE,
+                                       blank=True)
+    pre_history = models.ForeignKey(PreHistory, on_delete=models.CASCADE,
+                                    blank=True)
+    race = models.ForeignKey(Race, on_delete=models.CASCADE, blank=True)
+    world_outlook = models.ForeignKey(WorldOutlook, on_delete=models.CASCADE,
+                                      blank=True)
+    experience = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
-        return self.name
+        return self.name_champion
 
     class Meta:
         verbose_name_plural = 'персонажи'

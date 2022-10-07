@@ -30,7 +30,7 @@ def combine_names(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('dnd', '0003_base'),
+        ('dnd', '0001_initial'),
     ]
 
     operations = [

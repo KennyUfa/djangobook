@@ -1,9 +1,33 @@
 {% extends "base_generic.html" %}
 {% block content %}
-    <h3>{{ ac_info.name }}</h3>
-    {% for spell in ac_info.spells.all %}
-        <div>
-            <a href={% url 'spell' spell.id %}>{{ spell }}</a>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="player-name col-md-3">
+                {{ ac_info.name_champion }}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="div col player-info p-1">{{ ac_info.lvl }}
+                        {{ ac_info.champion_class }}
+                    </div>
+                    <div class="div col player-info p-1">-</div>
+                    <div class="div col player-info p-1">-</div>
+                    <div class="div col player-info p-1">-</div>
+                </div>
+                <div class="row">
+                    <div class="col player-info p-1">{{ ac_info.race }}</div>
+                    <div class="col player-info p-1">-</div>
+                    <div class="col player-info p-1">{{ ac_info.experience }}</div>
+                    <div class="col player-info p-1">-</div>
+                </div>
+            </div>
         </div>
-    {% endfor %}
+    </div>
+    </body>
 {% endblock content %}
+{#    {% for spell in ac_info.spells.all %}#}
+{#        <div>#}
+{#            <a href={% url 'spell' spell.id %}>{{ spell }}</a>#}
+{#        </div>#}
+{#    {% endfor %}#}
