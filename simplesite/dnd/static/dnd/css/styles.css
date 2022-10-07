@@ -32,4 +32,9 @@ html {
 
 .player-name{
   border: solid 1px black;
+  border-radius: 2px;
+}
+
+.stat {
+  border: solid 1px black;
 }

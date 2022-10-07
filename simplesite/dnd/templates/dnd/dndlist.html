@@ -1,27 +1,216 @@
 {% extends "base_generic.html" %}
 {% block content %}
     <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="player-name col-md-3">
                 {{ ac_info.name_champion }}
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <div class="div col player-info p-1">{{ ac_info.lvl }}
-                        {{ ac_info.champion_class }}
+                    <div class="div col player-info p-1">
+                        {{ ac_info.champion_class.class_name }}
                     </div>
-                    <div class="div col player-info p-1">-</div>
-                    <div class="div col player-info p-1">-</div>
-                    <div class="div col player-info p-1">-</div>
+                    <div class="div col player-info p-1">
+                        {{ ac_info.pre_history.history }}</div>
+                    <div class="div col player-info p-1">
+                        {{ ac_info.account }}</div>
                 </div>
                 <div class="row">
-                    <div class="col player-info p-1">{{ ac_info.race }}</div>
-                    <div class="col player-info p-1">-</div>
+                    <div class="col player-info p-1">{{ ac_info.race.race }}</div>
+                    <div class="col player-info p-1">
+                        {{ ac_info.world_outlook.world_outlook }}</div>
                     <div class="col player-info p-1">{{ ac_info.experience }}</div>
-                    <div class="col player-info p-1">-</div>
+                    <div class="col player-info p-1">{{ ac_info.lvl }}</div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col player-info">
+                <div class="row">
+                    <div class="col player-info">
+                        <div class="card">
+                            <div class="card-body stat">
+                                <h5 class="card-title">Сила</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                            <div class="card-body stat">
+                                <h5 class="card-title">Ловкость</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                            <div class="card-body stat">
+                                <h5 class="card-title">Телосложение</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                            <div class="card-body stat">
+                                <h5 class="card-title">Интелект</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                            <div class="card-body stat">
+                                <h5 class="card-title">Мудрость</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                            <div class="card-body stat">
+                                <h5 class="card-title">Харизма</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col player-info">
+                        <div class="row">
+                            <div class="card stat">
+                                <h5 class="card-title">Вдохновение</h5>
+                            </div>
+                            <div class="card stat">
+                                <h5 class="card-title">Бонус Владения</h5>
+                            </div>
+                        </div>
+                        <div class="row card stat">
+                            <div class="">
+                                <h5 class="card-title">Сила</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">Ловкость</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">Телосложение</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">Интеллект</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">Мудрость</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">Харизма</h5>
+                            </div>
+                            <div class="">
+                                <h6 class="card-title"
+                                    style="text-align: center">Спасброски</h6>
+                            </div>
+                        </div>
+                        <div class="row card stat">
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h5 class="card-title">рыбааааааа</h5>
+                            </div>
+                            <div class="">
+                                <h6 class="card-title" style="text-align:
+                                center">Навыки</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col player-info">
+                <div class="row gx-1">
+                    <div class="col">
+                        <div class="p-1 border bg-light">КЗ
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1 border bg-light">Инициатива
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1 border bg-light">Скорость
+                        </div>
+                    </div>
+                </div>
+                <div class="col player-info">
+                    <div class="card">
+                        <div class="card-body stat">
+                            <h5 class="card-title">Максимум хитов</h5>
+                            <h5 class="card-title">Текущие Хиты</h5>
+                            <h5 class="card-title">Временные Хиты</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row dx-1">
+                    <div class="col">
+                        <div class="p-1 border bg-light">Кость Хитов
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1 border bg-light">Спасброски от смерти
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        АТАКИ
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Атаки и заклинания</h5>
+                        <p class="card-text">With supporting text below as a
+                            natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col player-info">2</div>
         </div>
     </div>
     </body>

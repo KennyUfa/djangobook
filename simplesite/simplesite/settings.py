@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'bboard.apps.BboardConfig',
     'dnd.apps.DndConfig',
     'channels',
-
 ]
 
 MIDDLEWARE = [
