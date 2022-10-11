@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from random import randint
 from dnd.models import DndSpell, Character
 from django.views.generic import ListView
@@ -14,6 +14,7 @@ def home(request):
 def character(request):
     ac_info = Character.objects.get(account=request.user)
     return render(request, 'dnd/dndlist.html', {'ac_info': ac_info})
+
 
 def roll_dice(request):
     if request.method == "GET":
@@ -50,5 +51,11 @@ class LoginDnd(LoginView):
     next_page = '/'
 
 
-def todolist(request):
-    return render(request, 'todolist.html')
+def todo(request):
+    print(Character.objects.get().lvl)
+    x = Character.objects.get()
+    x.lvl += 1
+    x.save()
+    print(Character.objects.get().lvl)
+
+    return JsonResponse({'lvl': Character.objects.get().lvl}, safe=False)
