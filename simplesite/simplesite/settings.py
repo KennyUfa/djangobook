@@ -33,11 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'livereload',
+    # 'livereload',
     'django.contrib.staticfiles',
     'bboard.apps.BboardConfig',
     'dnd.apps.DndConfig',
-    'channels',
+    # 'channels',
 ]
 
 MIDDLEWARE = [
